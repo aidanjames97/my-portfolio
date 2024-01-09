@@ -369,9 +369,9 @@ function Page3() {
                             <img className="languageLogo" src={vbaLogo} alt="vba"></img>
                         </div>
                         <div className="gitLinkContainer">
-                            <Link className="gitLink" href="https://github.com/aidanjames97">
+                            <a className="gitLink" target={"_blank"} href="https://github.com/aidanjames97">
                                 <span>View more!</span>
-                            </Link>
+                            </a>
                         </div>
                     </section>
                 </div>
