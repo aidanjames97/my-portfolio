@@ -194,7 +194,7 @@ function Page3() {
                     <section id="experiance" className={`scroll-element ${inView ? 'scroll-effect' : ''}`} ref={ref}>
                         {/* subheading */}
                         <div className="subheadTitleContain">
-                            <h1 className="subheadTitle">Experiance</h1>
+                            <h1 className="subheadTitle">Experience</h1>
                             <span className="subheadLine"></span>
                         </div>
 
