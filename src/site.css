@@ -735,6 +735,7 @@ html {
         font-weight: 300;
         color: var(--grey);
         margin: 0;
+        margin-right: 5px;
         padding-top: 4px;
     }
     
@@ -1340,10 +1341,12 @@ html {
 
     /* each project card container */
     .projectCard {
+        width: 100%;
         margin-bottom: 2vh;
         padding-bottom: 15px;
         display: flex;
         flex-direction: row;
+        justify-content: center;
     }
 
     /* picture container */
@@ -1366,25 +1369,21 @@ html {
 
     /* container for all project text */
     .rightSideText {
-        direction: rtl; /* this is to overflow to the left */
-        text-align: center;
-        z-index: 2;
         width: 100%;
         display: flex;
         flex-direction: column;
         cursor: default;
         justify-content: center;
+        text-align: center;
     }
 
     .leftSideText {
-        direction: ltr; 
-        text-align: center;
         width: 100%;
         display: flex;
         flex-direction: column;
-        z-index: 2;
         cursor: default;
         justify-content: center;
+        text-align: center;
     }
 
     .projectTypeL {
@@ -1412,14 +1411,12 @@ html {
         color: var(--white);
         margin-bottom: 5px;
         text-align: center;
-
     }
 
     /* description of projects */
     .projectText {
         margin: 0;
-        width: 100%;
-        height: auto;
+        width: 95%;
         border-radius: 10px;
         background-color: var(--offBlue);
         padding: 10px;
@@ -1427,8 +1424,7 @@ html {
 
     .projectTextL {
         margin: 0;
-        width: 100%;
-        height: auto;
+        width: 95%;
         border-radius: 10px;
         background-color: var(--offBlue);
         padding: 10px;
