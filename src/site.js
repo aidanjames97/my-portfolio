@@ -158,29 +158,27 @@ function Page3() {
                     {/* about me section */}
                     <section id="about" className="aboutMe">
                         <b className="aboutMeText">
-                            I am 20 years old and have graduated from Northern Collegiate with Honours. 
-                            I am currently attending 
+                            I am currently a third-year Honours student at 
                         </b>
                         <span className="aboutMeTextColor"> Western University</span>
                         <b className="aboutMeText">
-                            , and am a third-year majoring in 
+                            , majoring in  
                         </b>
-                        <span className="aboutMeTextColor"> Honors Computer Science </span> 
+                        <span className="aboutMeTextColor"> Computer Science </span> 
                         <b className="aboutMeText">
                             with a minor in
                         </b> 
-                        <span className="aboutMeTextColor"> Software Egineering</span>
-                        <b className="aboutMeText">     
-                            . I speak English, and French as a second language. 
-                            I have played travel hockey and soccer as well as playing multiple 
-                            intramural sports such as: volleyball, spikeball, soccer, and golf.
-                        </b>
-                        <p></p>
-                        {/* second paragraph about me */}
+                        <span className="aboutMeTextColor"> Software Engineering</span>
                         <b className="aboutMeText">
-                            I am experienced with a variety of languages such as: Visual Basic, C, 
+                            . I am experienced with a variety of languages such as: Visual Basic, C, 
                             HTML, CSS, JavaScript, Java, Python, VBA, PHP, SQL, and ARM. As well as the basics of 
                             game development in Unity. Competent with the interworking of computers and am able to assemble desktop PC’s.
+                        </b>
+                        <p></p>
+                        <b className="aboutMeText">
+                            I speak English, and French as a second language. I graduated from Northern Collegiate with 
+                            Honours, and a certificate in French Immersion. I have played travel hockey and soccer, as 
+                            well as multiple intramural sports including: volleyball, spikeball, soccer, and golf.
                         </b>
                         <p></p>
                         {/* third paragraph about me */}
