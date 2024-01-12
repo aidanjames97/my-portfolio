@@ -14,9 +14,14 @@ import jsLogo from "./pictures/jsLogo.png";
 import snake from "./pictures/Snake.jpeg"
 import stock from "./pictures/stock.png"
 import spell from "./pictures/spellSC.png"
+import resume from "./pictures/Resume.pdf"
 
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer"
+
+function openPDF() {
+    window.open(resume, "_blank");
+}
 
 // page elements
 function Page3() { 
@@ -149,6 +154,7 @@ function Page3() {
                             <a href="https://github.com/aidanjames97" target="_blank" rel="noreferrer">
                                 <img className="logo" src={github} alt="github"></img>
                             </a>
+                            <button className="resumeButton" onClick={openPDF}>Resume</button>
                         </div>
                     </div>
                 </div>
@@ -158,7 +164,7 @@ function Page3() {
                     {/* about me section */}
                     <section id="about" className="aboutMe">
                         <b className="aboutMeText">
-                            I am currently a third-year Honours student at 
+                            I am currently a third-year Honors student at 
                         </b>
                         <span className="aboutMeTextColor"> Western University</span>
                         <b className="aboutMeText">
