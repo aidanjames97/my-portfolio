@@ -1593,7 +1593,6 @@ html {
     } 
 }
 
-
 /* -------------------- LANGUAGES -------------------- */
 @media screen and (min-width: 2400px) {
     .languagesContainer {
@@ -1620,7 +1619,7 @@ html {
         display: flex;
         margin: 0;
         width: 100%;
-        margin-bottom: 2vh;
+        margin-bottom: 5vh;
         justify-content: center;
         align-items: center;
     }
@@ -1673,7 +1672,7 @@ html {
         display: flex;
         margin: 0;
         width: 100%;
-        margin-bottom: 2vh;
+        margin-bottom: 5vh;
         justify-content: center;
         align-items: center;
     }
@@ -1727,7 +1726,7 @@ html {
         display: flex;
         margin: 0;
         width: 100%;
-        margin-bottom: 2vh;
+        margin-bottom: 5vh;
         justify-content: center;
         align-items: center;
     }
@@ -1752,5 +1751,73 @@ html {
         border-top-width: 1px;
         border-color: rgba(255, 255, 255, 0.1); 
         cursor: pointer;
+    }
+}
+
+/* -------------------- CONTACT ME ------------------- */
+@media screen and (min-width: 2400px){
+    .contactContainer {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 5vh;
+    }
+
+    .contactHeaderText {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .contactHeaderText b {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--grey);
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 2400px){
+    .contactContainer {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 5vh;
+    }
+
+    .contactHeaderText {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .contactHeaderText b {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--grey);
+    }
+}
+@media screen and (max-width: 1023px){
+    .contactContainer {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 5vh;
+    }
+
+    .contactHeaderText {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .contactHeaderText b {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--grey);
     }
 }
