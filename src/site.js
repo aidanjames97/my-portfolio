@@ -143,6 +143,16 @@ function Page3() {
                             offset={-20}
                         >
                             <b style={textStyleLanguages} className="navLanguagesText">LANGUAGES</b>
+                            <span className="navButtonLine"></span> 
+                        </Link>
+                        <Link className="navButton"
+                            to="contact" // section name
+                            smooth={true} // smooth scroll
+                            duration={500} // 500ms
+                            spy={true} // link is selected when scroll at traget postion
+                            offset={-20}
+                        >
+                            <b style={textStyleLanguages} className="navLanguagesText">CONTACT ME</b> 
                         </Link>
 
                         {/* socials */}
@@ -355,7 +365,7 @@ function Page3() {
                         </div>
                     </section>
 
-                    {/* languages secton of page */}
+                    {/* languages section of page */}
                     <section id="languages" className="languagesContainer">
                         <div className="subheadTitleContain">
                             <h1 className="subheadTitle">Languages</h1>
@@ -376,6 +386,19 @@ function Page3() {
                             <a className="gitLink" target={"_blank"} rel="noreferrer" href="https://github.com/aidanjames97">
                                 <span>View more!</span>
                             </a>
+                        </div>
+                    </section>
+
+                    {/* contact me section of page */}
+                    <section id="contact" className="contactContainer">
+                        {/* subheading */}
+                        <div className="subheadTitleContain">
+                            <span className="subheadLine"></span>
+                            <h1 className="subheadTitle">Contact</h1>
+                        </div>
+
+                        <div className="contactHeaderText">
+                            <b>Feel free to contact me with questions or suggestions!</b>
                         </div>
                     </section>
                 </div>
