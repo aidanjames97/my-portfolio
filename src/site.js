@@ -91,9 +91,19 @@ function Page3() {
     color: textColorLanguages,
     fontWeight: languagesWeight,
   };
+
+  // for init load
+  const [isLoaded, setIsLoaded] = useState(false);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoaded(true);
+    }, 1); // 1ms delay (can be increaed to simulate loading)
+
+    return () => clearTimeout(timeout);
+  }, []);
         
     return (
-        <div className="page3Contain">
+        <div className={`page3Contain ${isLoaded ? 'loaded' : ''}`}>
             {/* page contents */}
             <div className="page3text">
                 {/* left side of page */} 
@@ -399,6 +409,7 @@ function Page3() {
 
                         <div className="contactHeaderText">
                             <b>Feel free to contact me with questions or suggestions!</b>
+                            <a href="mailto:aidan97james@gmail.com?subject=Website%20Question%20">Feel free to contact me with questions or suggestions!</a>
                         </div>
                     </section>
                 </div>
