@@ -941,9 +941,17 @@ html {
     text-align: center;
     justify-content: center;
 }
-.contactHeaderText b {
+.contactHeaderText a {
+    transition: ease-in-out .3s;
+    text-decoration: none;
     margin: 0;
     font-size: 16px;
     font-weight: 500;
     color: var(--grey);
+}
+
+.contactHeaderText a:hover {
+    transition: ease-in-out .3s;
+    color: var(--white);
+    font-weight: 900;
 }

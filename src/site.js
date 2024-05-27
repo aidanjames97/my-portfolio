@@ -408,7 +408,6 @@ function Page3() {
                         </div>
 
                         <div className="contactHeaderText">
-                            <b>Feel free to contact me with questions or suggestions!</b>
                             <a href="mailto:aidan97james@gmail.com?subject=Website%20Question%20">Feel free to contact me with questions or suggestions!</a>
                         </div>
                     </section>
