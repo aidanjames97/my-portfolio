@@ -674,6 +674,10 @@ html {
     font-size: 30px;
     font-weight: 300;
 }
+.projectText a {
+    text-decoration: none;
+    color: var(--white);
+}
 .projectTextL b {
     font-size: 30px;
     font-weight: 300;
@@ -732,7 +736,7 @@ html {
         font-size: 25px;
 
     }
-    .projectText b {
+    .projectText b, .projectText a {
         font-size: 15px;
     }
     .projectTextL b {
@@ -752,7 +756,7 @@ html {
         margin-right: 15px;
     }
 }
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 800px) and (max-width: 1023px) {
     .projectCard {
         display: flex;
         justify-content: center;
@@ -771,7 +775,7 @@ html {
         font-size: 25px;
 
     }
-    .projectText b {
+    .projectText b, .projectText a {
         font-size: 15px;
     }
     .projectTextL b {
@@ -796,7 +800,7 @@ html {
         margin-right: 10px;
     } 
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 799px) {
     .projectCard {
         justify-content: center;
     }
@@ -827,7 +831,7 @@ html {
     .projectTextL {
         width: 95%;
     }
-    .projectText b {
+    .projectText b, .projectText a {
         font-size: 15px;
     }
     .projectTextL b {
@@ -884,6 +888,7 @@ html {
     transition: ease-in-out .2s;
     border-radius: 5px;
     padding: 5px;
+    margin-top: 25px;
     width: fit-content;
     border-top-style: solid;
     border-top-width: 1px;
@@ -903,29 +908,43 @@ html {
 
 @media screen and (min-width: 1024px) and (max-width: 2400px) {
     .languageLogoContainer {
-        grid-template-rows: repeat(2, 175px);
+        grid-template-rows: repeat(2, 125px);
     }
     .languageLogo {
-        width: 125px;
-        height: 125px;
+        width: 100px;
+        height: 100px;
     }
     .gitLink {
         font-size: 15px;
     }
 }
-@media screen and (max-width: 1023px) {
+@media screen and (min-width: 546px) and (max-width: 1023px) {
     .languageLogoContainer {
-        margin-bottom: 8vh;
-        grid-template-rows: repeat(2, 75%);
+        grid-template-rows: repeat(1, 125px);
     } 
     .languageLogo {
-        width: 75%;
+        width: 100px;
         height: auto;
+        padding: 25px;
     }
 
     .gitLink {
         font-size: 16px;
     }
+}
+@media screen and (max-width: 545px){
+    .languageLogoContainer {
+        grid-template-rows: repeat(1, 100px);
+    } 
+    .languageLogo {
+        width: 70px;
+        height: auto;
+        padding: 15px;
+    }
+
+    .gitLink {
+        font-size: 16px;
+    } 
 }
 
 /* -------------------- CONTACT ME ------------------- */

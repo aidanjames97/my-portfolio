@@ -1,20 +1,25 @@
-import React, {useState, useEffect } from "react";
-import "./site.css";
+import React, {useState, useEffect } from "react"
+import "./site.css"
 
-import github from "./pictures/githubWhite.png";
-import linkedin from "./pictures/linkedinWhite.png";
-import cLogo from "./pictures/cLogo.png";
-import cssLogo from "./pictures/cssLogo.png";
-import htmlLogo from "./pictures/htmlLogo.png";
-import javaLogo from "./pictures/lavaLogo.png";
-import pythonLogo from "./pictures/pythonLogo.png";
-import reactLogo from "./pictures/reactLogo.png";
-import vbaLogo from "./pictures/vbaLogo.png";
-import jsLogo from "./pictures/jsLogo.png";
+import github from "./pictures/githubWhite.png"
+import linkedin from "./pictures/linkedinWhite.png"
+import cLogo from "./pictures/cLogo.png"
+import cssLogo from "./pictures/cssLogo.png"
+import htmlLogo from "./pictures/htmlLogo.png"
+import javaLogo from "./pictures/lavaLogo.png"
+import pythonLogo from "./pictures/pythonLogo.png"
+import reactLogo from "./pictures/reactLogo.png"
+import vbaLogo from "./pictures/vbaLogo.png"
+import jsLogo from "./pictures/jsLogo.png"
 import snake from "./pictures/Snake.jpeg"
-import stock from "./pictures/stock.png"
+import site from "./pictures/site.png"
 import spell from "./pictures/spellSC.png"
 import resume from "./pictures/Resume.pdf"
+import app from "./pictures/app.png"
+import cppLogo from "./pictures/cppLogo.png"
+import swiftLogo from "./pictures/swiftLogo.png"
+import phpLogo from "./pictures/phpLogo.png"
+import jsonLogo from "./pictures/jsonLogo.png"
 
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer"
@@ -55,9 +60,9 @@ function Page3() {
   // top of page
   const aboutScroll = 0;
   // experiance part of page
-  const experianceScroll = pageHeight * 0.16;
+  const experianceScroll = pageHeight * 0.1;
   // projects part of page
-  const projectScroll = pageHeight * 0.45;
+  const projectScroll = pageHeight * 0.3;
   // languages part of page
   const languageScroll = pageHeight * 0.66;
 
@@ -287,18 +292,20 @@ function Page3() {
                         {/* first project */}
                         <div className="projectCard">
                             <div className="leftSidePic">
-                                <img className="projectPic" src={stock} alt="stock"></img>
+                                <img className="projectPic" src={site} alt="site"></img>
                             </div>
                             <div className="rightSideText">
-                                <h1 className="projectTitle">Portfolio Manager</h1>
+                                <h1 className="projectTitle">Company Website</h1>
                                 <div className="projectText">
                                     <b>
-                                    I developed a website which users can add their stock holdings which are then stored in a database. Then, using Yahoo’s API can track current prices and make profit / loss calculations. This is still a work in progress 
+                                        Using React and other design tools, I created the graphics, designed the webpage, took photos, and developed the webpage.
+                                        I was tasked with creating a new, modern webpage for Lambton Scientific, check it out at:
                                     </b>
+                                    <a href="https://www.lambtonscientific.com/"> www.lambtonscientific.com</a>
                                 </div>
                                 <div className="codingTypes">
-                                    <b>Yahoo API</b>
-                                    <b>Node JS</b>
+                                    <b>React</b>
+                                    <b>Graphic Design</b>
 
                                     <div className="socialLinkContain">
                                         <a href="http://www.linkedin.com/in/aidanjames/" target="_blank" rel="noreferrer">
@@ -315,8 +322,8 @@ function Page3() {
                         {/* second project */}
                         <div className="projectCard">
                             <div className="leftSideText">
-                                <h1 className="projectTitleL">Snake Game</h1>
-                                <div className="projectTextL">
+                                <h1 className="projectTitle">Snake Game</h1>
+                                <div className="projectText">
                                     <b>
                                     I replicated the popular online arcade game snake, eating apples 
                                     increases snake’s length by one. The game speed increases and bombs also spawn 
@@ -338,7 +345,7 @@ function Page3() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="rightSidePic">
+                            <div className="leftSidePic">
                                 <img className="projectPic" src={snake} alt="snake"></img>
                             </div>
                         </div>
@@ -346,11 +353,38 @@ function Page3() {
                         {/* third project */}
                         <div className="projectCard">
                             <div className="leftSidePic">
-                                <img className="projectPic" src={spell} alt="spell"></img>
+                                <img className="projectPic" src={app} alt="app"></img>
                             </div>
                             <div className="rightSideText">
-                                <h1 className="projectTitle">Spell Checker</h1> 
+                                <h1 className="projectTitle">Golf Tracker</h1>
                                 <div className="projectText">
+                                    <b>
+                                        Since I love to play golf in my pass time, I decided to create an IOS App which allows
+                                        users to track their rounds as well as look at other courses using data I scraped from
+                                        an online course database.
+                                    </b>
+                                </div>
+                                <div className="codingTypes">
+                                    <b>Swift</b>
+                                    <b>Python</b>
+
+                                    <div className="socialLinks">
+                                        <a href="http://www.linkedin.com/in/aidanjames/" target="_blank" rel="noreferrer">
+                                            <img className="socialLink" src={linkedin} alt="Linkedin"></img>
+                                        </a>
+                                        <a href="https://github.com/aidanjames97" target="_blank" rel="noreferrer">
+                                            <img className="socialLink" src={github} alt="Github"></img>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* fourth project */}
+                        <div className="projectCard">
+                            <div className="leftSideText">
+                                <h1 className="projectTitleL">Spell Checker</h1> 
+                                <div className="projectTextL">
                                     <b>
                                         For my CS class, Data Structures and Algorithms, we were 
                                         tasked in making a java program which takes a file and reads 
@@ -372,6 +406,9 @@ function Page3() {
                                     </div>
                                 </div>
                             </div>
+                            <div className="rightSidePic">
+                                <img className="projectPic" src={spell} alt="spell"></img>
+                            </div>
                         </div>
                     </section>
 
@@ -391,6 +428,10 @@ function Page3() {
                             <img className="languageLogo" src={pythonLogo} alt="python"></img>
                             <img className="languageLogo" src={reactLogo} alt="react"></img>
                             <img className="languageLogo" src={vbaLogo} alt="vba"></img>
+                            <img className="languageLogo" src={swiftLogo} alt="swift"></img>
+                            <img className="languageLogo" src={cppLogo} alt="cpp"></img>
+                            <img className="languageLogo" src={phpLogo} alt="php"></img>
+                            <img className="languageLogo" src={jsonLogo} alt="json"></img>
                         </div>
                         <div className="gitLinkContainer">
                             <a className="gitLink" target={"_blank"} rel="noreferrer" href="https://github.com/aidanjames97">
