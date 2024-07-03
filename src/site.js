@@ -189,7 +189,7 @@ function Page3() {
                     {/* about me section */}
                     <section id="about" className="aboutMe">
                         <b className="aboutMeText">
-                            I am currently a third-year Honors student at 
+                            I am currently a fourth-year Honors student at 
                         </b>
                         <span className="aboutMeTextColor"> Western University</span>
                         <b className="aboutMeText">
@@ -201,9 +201,10 @@ function Page3() {
                         </b> 
                         <span className="aboutMeTextColor"> Software Engineering</span>
                         <b className="aboutMeText">
-                            . I am experienced with a variety of languages such as: Visual Basic, C, 
-                            HTML, CSS, JavaScript, Java, Python, VBA, PHP, SQL, and ARM. As well as the basics of 
-                            game development in Unity. Competent with the interworking of computers and am able to assemble desktop PC’s.
+                            . I am experienced with a variety of languages such as: Visual Basic, C, C++, 
+                            HTML, CSS, JavaScript, Java, Python, VBA, PHP, SQL, Swift, and ARM. To assist with developing more complex projects,
+                            I also have experience with frameworks such as ReactJS, NodeJS, and QT. I have also explored and developed games in 
+                            Unity. I am also competent with the interworking of computers on the hardware side and am able to assemble desktop PC’s.
                         </b>
                         <p></p>
                         <b className="aboutMeText">
@@ -231,17 +232,18 @@ function Page3() {
                         {/* third experiance */}
                         <div className="experianceCard">
                             <div className="timeline">
-                                <b>May 2022 - Aug 2023</b>
+                                <b>May 2022 - Aug 2024</b>
                             </div>
                             <div className="textContain">
                                 <h2>Lambton Scientific</h2>
-                                <h3>Lab Technician</h3>
+                                <h3>Lab Technician / Developer</h3>
                                 <p>
-                                    Handled environmental samples and completed a variety of 
+                                    In this role I: handled environmental samples and completed a variety of 
                                     testing on them. Obtained data from sampling software and 
-                                    recorded data using excel. Managed database of testing results.
-                                    In this role I perfected time management due to the juggling of tasks
-                                    as well as cooperation and communication with co-workers.
+                                    recorded data using excel. Created and manage company website. Refining and creating
+                                    new excel record and calculation spreadsheets to be used and given to clients.
+                                    In this position, I perfected time management due to the juggling of tasks
+                                    as well as cooperation and communication with co-workers along with real world development experience.
                                 </p>
                             </div>
                         </div>
@@ -255,10 +257,12 @@ function Page3() {
                                 <h2>Metro</h2>
                                 <h3>Grocery Clerk</h3>
                                 <p>
-                                    Helping customers, stocking shelves, receiving deliveries 
-                                    from trucks. Making displays, incorporating them to the 
-                                    floor and organize floor display layout. Managed inventory, returns, and expired products using 
-                                    company software.  
+                                    In this role I: assisted customers depending on their needs, 
+                                    stocked shelves, receiving and unloaded deliveries from trucks while coordinating 
+                                    with inventory. I created displays and incorporated them on the 
+                                    floor in an organized and tidy layout. Managed inventory, returns, and expired products using 
+                                    company software. In this position communication, time management, and personal responsibility were
+                                    crucial as often I would work alone on tasks or had to coordinate with others.
                                 </p>
                             </div>
                         </div>
@@ -272,10 +276,10 @@ function Page3() {
                                 <h2>McDonalds</h2>
                                 <h3>Customer Service</h3>
                                 <p>
-                                    Interact with 100+ customers an hour, take and complete orders 
-                                    using POS. Handle money, fulfill returns, organize 
+                                    In this role I: interacted and served 100+ customers an hour, taking and completing orders 
+                                    using POS. I Handled money, fulfilled returns, organized 
                                     orders, and track order completion time. In this position, 
-                                    communication and time management were essential.
+                                    communication and time management were essential and I developed these skills.
                                 </p>
                             </div>
                         </div>
