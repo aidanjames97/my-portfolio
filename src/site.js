@@ -332,7 +332,7 @@ function Page3() {
                                     I replicated the popular online arcade game snake, eating apples 
                                     increases snake’s length by one. The game speed increases and bombs also spawn 
                                     which the player must dodge. This game uses a server to host a chatroom and allows for
-                                    muliplayer. 
+                                    multiplayer. 
                                     </b>
                                 </div>
                                 <div className="codingTypes">
