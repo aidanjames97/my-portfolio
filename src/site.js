@@ -29,7 +29,7 @@ function openPDF() {
 }
 
 // page elements
-function Page3() { 
+function Site() { 
     // hook returns boolean 'inView' and a ref to attach 
     const [ref, inView] = useInView({
         triggerOnce: true, // Only trigger once when the element enters the viewport
@@ -102,6 +102,7 @@ function Page3() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsLoaded(true);
+
     }, 1); // 1ms delay (can be increaed to simulate loading)
 
     return () => clearTimeout(timeout);
@@ -115,7 +116,7 @@ function Page3() {
                 <div className="leftSide">
                     <h1 className="nameTitle">Aidan James</h1>
                     <h2 className="nameText">CS student at Western University</h2>
-                    <h3 className="nameBody"> 3rd year computer science student at the University of <span className="colorChange">Western Ontario.</span></h3>
+                    <h3 className="nameBody"> 4th year computer science student at the University of <span className="colorChange">Western Ontario.</span></h3>
 
                     {/* navbar items */}
                     <div className="navbar">
@@ -309,6 +310,7 @@ function Page3() {
                                 </div>
                                 <div className="codingTypes">
                                     <b>React</b>
+                                    <b>SEO</b>
                                     <b>Graphic Design</b>
 
                                     <div className="socialLinkContain">
@@ -338,6 +340,7 @@ function Page3() {
                                 <div className="codingTypes">
                                     <b>Python</b>
                                     <b>Pygame</b>
+                                    <b>IP</b>
 
                                     <div className="socialLinks">
                                         <a href="http://www.linkedin.com/in/aidanjames/" target="_blank" rel="noreferrer">
@@ -363,13 +366,14 @@ function Page3() {
                                 <h1 className="projectTitle">Golf Tracker</h1>
                                 <div className="projectText">
                                     <b>
-                                        Since I love to play golf in my pass time, I decided to create an IOS App which allows
+                                        Since I love to play golf, I decided to create an IOS App which allows
                                         users to track their rounds as well as look at other courses using data I scraped from
                                         an online course database.
                                     </b>
                                 </div>
                                 <div className="codingTypes">
                                     <b>Swift</b>
+                                    <b>MapKit</b>
                                     <b>Python</b>
 
                                     <div className="socialLinks">
@@ -399,6 +403,7 @@ function Page3() {
                                 <div className="codingTypes">
                                     <b>Java</b>
                                     <b>Data Structures</b>
+                                    <b>Jira</b>
 
                                     <div className="socialLinkContain">
                                         <a href="http://www.linkedin.com/in/aidanjames/" target="_blank" rel="noreferrer">
@@ -461,5 +466,4 @@ function Page3() {
         </div> 
     );
 }
-
-export default Page3;
+export default Site;
