@@ -20,6 +20,7 @@ import cppLogo from "./pictures/cppLogo.png"
 import swiftLogo from "./pictures/swiftLogo.png"
 import phpLogo from "./pictures/phpLogo.png"
 import jsonLogo from "./pictures/jsonLogo.png"
+import headshot from "./pictures/headshot.JPG"
 
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer"
@@ -114,10 +115,14 @@ function Site() {
             <div className="page3text">
                 {/* left side of page */} 
                 <div className="leftSide">
-                    <h1 className="nameTitle">Aidan James</h1>
-                    <h2 className="nameText">CS student at Western University</h2>
-                    <h3 className="nameBody"> 4th year computer science student at the University of <span className="colorChange">Western Ontario.</span></h3>
-
+                    <div className="picName">
+                        <img className="headshot" src={headshot}></img>
+                        <div className="leftsideText">
+                            <h1 className="nameTitle">Aidan James</h1>
+                            <h2 className="nameText">MSc Buisness Analytics 2026 Candidate <a href="https://www.ivey.uwo.ca/" target="_blank" className="iveyColor">Ivey Business School</a></h2>
+                        </div>
+                    </div>
+                
                     {/* navbar items */}
                     <div className="navbar">
                         <Link className="navButton"
@@ -138,7 +143,7 @@ function Site() {
                             spy={true} // link is selected when scroll at traget postion
                             offset={-20}
                         >
-                            <b style={textStyleExperiance} className="navExperianceText">EXPERIANCE</b>
+                            <b style={textStyleExperiance} className="navExperianceText">EXPERIENCE</b>
                             <span className="navButtonLine"></span>
                         </Link>
                         <Link className="navButton"
@@ -190,34 +195,29 @@ function Site() {
                     {/* about me section */}
                     <section id="about" className="aboutMe">
                         <b className="aboutMeText">
-                            I am currently a fourth-year Honors student at 
+                            I have recently graduated from  
                         </b>
-                        <span className="aboutMeTextColor"> Western University</span>
+                        <span style={{color:"#4F2683"}} className="aboutMeTextColor"> Western University</span>
                         <b className="aboutMeText">
-                            , majoring in  
+                            , with a Bachelors of Science majoring in
                         </b>
-                        <span className="aboutMeTextColor"> Computer Science </span> 
+                        <span style={{color:"#4F2683"}} className="aboutMeTextColor"> Computer Science</span> 
                         <b className="aboutMeText">
-                            with a minor in
-                        </b> 
-                        <span className="aboutMeTextColor"> Software Engineering</span>
-                        <b className="aboutMeText">
-                            . I am experienced with a variety of languages such as: Visual Basic, C, C++, 
-                            HTML, CSS, JavaScript, Java, Python, VBA, PHP, SQL, Swift, and ARM. To assist with developing more complex projects,
-                            I also have experience with frameworks such as ReactJS, NodeJS, and QT. I have also explored and developed games in 
-                            Unity. I am also competent with the interworking of computers on the hardware side and am able to assemble desktop PC’s.
+                            . Currently, I am attending
                         </b>
-                        <p></p>
+                        <span style={{color:"#034638"}} className="aboutMeTextColor"> Ivey Business School </span>
                         <b className="aboutMeText">
-                            I speak English, and French as a second language. I graduated from Northern Collegiate with 
-                            Honours, and a certificate in French Immersion. I have played travel hockey and soccer, as 
-                            well as multiple intramural sports including: volleyball, spikeball, soccer, and golf.
+                            and am a candidate for the 26' Masters of Science in 
+                        </b>
+                        <span style={{color:"#034638"}} className="aboutMeTextColor"> Buisness Analytics</span>
+                        <b className="aboutMeText">
+                            .
                         </b>
                         <p></p>
-                        {/* third paragraph about me */}
                         <b className="aboutMeText">
-                            When I'm not at my computer or studying, I'm probably at the gym,
-                            hanging with friends, or playing golf. 
+                            I am fluent in English, and French as a second languaged having earned my high school diploma in French Immersion.
+                            I have been playing competitive sports my whole life, including hockey, soccer, track and field, and cross country.
+                            Recently, I have been playing volleyball and golf when not studying while also weighlifting, investing, and spending time with friends.
                         </b>
                     </section>
 
@@ -229,8 +229,26 @@ function Site() {
                             <span className="subheadLine"></span>
                         </div>
 
+                        {/* first experiance */}
+                        <div className="experianceCard">
+                            <div className="timeline">
+                                <b>July 2025 - Aug 2025 </b>
+                            </div>
+                            <div className="textContain">
+                                <h2>Fairwind Farms</h2>
+                                <h3>Property Management</h3>
+                                <p>
+                                    In this role I: operated and maintained farm equipment and tools to support 
+                                    daily operations, collaborating with coworkers to ensure efficiency, which 
+                                    resulted in reduced equipment downtime, extended lifespan, and safety 
+                                    improvements. I also Collaborated with a team of 8 staff to complete time-sensitive 
+                                    farming projects, contributing to smooth operations.
+                                </p>
+                            </div>
+                        </div>
+
                         {/* experiance cards */}
-                        {/* third experiance */}
+                        {/* second experiance */}
                         <div className="experianceCard">
                             <div className="timeline">
                                 <b>May 2022 - Aug 2024</b>
@@ -268,7 +286,7 @@ function Site() {
                             </div>
                         </div>
 
-                        {/* third experiance */}
+                        {/* fourth experiance */}
                         <div className="experianceCard">
                             <div className="timeline">
                                 <b>Jan 2019 - Aug 2021</b>

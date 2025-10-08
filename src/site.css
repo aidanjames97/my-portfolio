@@ -4,6 +4,7 @@
     --grey: rgb(169, 169, 189);
     --backgroundBlue: #02162c;
     --offBlue: #032141;
+    --green: #034638
 }
 /* affects the color behind the webpage (for overscroll) */
 html {
@@ -86,22 +87,33 @@ html {
 }
 
 /* -------------------- NAME SECTION -------------------- */
+.picName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headshot {
+    display: flex;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
 .nameTitle {
     margin: 0;
     margin-bottom: 10px;
-    font-weight: 800;
+    font-weight: 900;
     cursor: default;
 }
 .nameText {
     margin: 0;
-    margin-bottom: 10px;
     font-weight: 600;
     cursor: default;
 }
 .nameBody {
     margin: 0;
     font-weight: 500;
-    margin-bottom: 5px;
     color: var(--grey);
     cursor: default;
 }
@@ -118,6 +130,17 @@ html {
     transition: ease-in-out 0.3s;
     color: var(--white);
 }
+.iveyColor {
+    transition: ease-in-out 0.3s;
+    margin: 0;
+    text-decoration: none;
+    color: var(--white);
+}
+.iveyColor:hover {
+    transition: ease-in-out 0.3s;
+    color: var(--green);
+}
+
 
 @media screen and (min-width: 2400px) {
     .nameTitle {
@@ -135,7 +158,7 @@ html {
 }
 @media screen and (min-width: 1024px) and (max-width: 2400px) {
     .nameTitle {
-        font-size: 45px;
+        font-size: 48px;
     }
     .nameText {
         font-size: 20px;
@@ -381,8 +404,7 @@ html {
 }
 .aboutMeTextColor {
     margin: 0;
-    font-weight: 500;
-    color: var(--white);
+    font-weight: 800;
 }
 @media screen and (min-width: 2400px) {
     .aboutMeText {
