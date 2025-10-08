@@ -158,7 +158,7 @@ html {
 }
 @media screen and (min-width: 1024px) and (max-width: 2400px) {
     .nameTitle {
-        font-size: 48px;
+        font-size: 40px;
     }
     .nameText {
         font-size: 20px;
@@ -169,12 +169,12 @@ html {
 }
 @media screen and (max-width: 1023px) {
     .nameTitle {
-        margin-bottom: 20px;
-        font-size: 40px;
+        margin-bottom: 10px;
+        font-size: 30px;
         height: 30px;
     }
     .nameText {
-        font-size: 20px;
+        font-size: 15px;
     }
     .nameBody {
         margin: 0;
@@ -372,6 +372,9 @@ html {
     .resumeButton {
         margin-right: 0;
     }
+    .resumeButton:hover {
+        margin-right: 0;
+    }
 }
 
 /* -------------------- RIGHT SIDE OF PAGE -------------------- */
@@ -558,16 +561,19 @@ html {
     }
 }
 @media screen and (max-width: 1023px) {            
-    /* dates of work */
-    .timeline {
-        width: 20%;
-        font-size: 12px;
-        margin-right: 5px;
-        padding-top: 4px;
+    .experianceCard {
+        flex-direction: column;
     }
-    
+    .timeline {
+        font-size: 12px;
+        width: 100%;
+    }
+    .textContain {
+        width: 100%;
+    }
     .textContain h2 {
-        font-size: 20px;
+        font-size: 25px;
+        font-weight: 600;
     }
     
     .textContain h3 {
