@@ -20,7 +20,7 @@ import cppLogo from "../public/cppLogo.png"
 import swiftLogo from "../public/swiftLogo.png"
 import phpLogo from "../public/phpLogo.png"
 import jsonLogo from "../public/jsonLogo.png"
-import headshot from "../public/headshot.JPG"
+import headshot from "../public/headshot.jpeg"
 
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer"
