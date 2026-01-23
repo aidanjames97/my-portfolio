@@ -1,26 +1,26 @@
 import React, {useState, useEffect } from "react"
 import "./site.css"
 
-import github from "../public/githubWhite.png"
-import linkedin from "../public/linkedinWhite.png"
-import cLogo from "../public/cLogo.png"
-import cssLogo from "../public/cssLogo.png"
-import htmlLogo from "../public/htmlLogo.png"
-import javaLogo from "../public/lavaLogo.png"
-import pythonLogo from "../public/pythonLogo.png"
-import reactLogo from "../public/reactLogo.png"
-import vbaLogo from "../public/vbaLogo.png"
-import jsLogo from "../public/jsLogo.png"
-import snake from "../public/Snake.jpeg"
-import site from "../public/site.png"
-import spell from "../public/spellSC.png"
-import resume from "../public/Resume.pdf"
-import app from "../public/app.png"
-import cppLogo from "../public/cppLogo.png"
-import swiftLogo from "../public/swiftLogo.png"
-import phpLogo from "../public/phpLogo.png"
-import jsonLogo from "../public/jsonLogo.png"
-import headshot from "../public/headshot.jpeg"
+import github from "/githubWhite.png"
+import linkedin from "/linkedinWhite.png"
+import cLogo from "/cLogo.png"
+import cssLogo from "/cssLogo.png"
+import htmlLogo from "/htmlLogo.png"
+import javaLogo from "/lavaLogo.png"
+import pythonLogo from "/pythonLogo.png"
+import reactLogo from "/reactLogo.png"
+import vbaLogo from "/vbaLogo.png"
+import jsLogo from "/jsLogo.png"
+import snake from "/Snake.jpeg"
+import site from "/site.png"
+import spell from "/spellSC.png"
+import resume from "/Resume.pdf"
+import app from "/app.png"
+import cppLogo from "/cppLogo.png"
+import swiftLogo from "/swiftLogo.png"
+import phpLogo from "/phpLogo.png"
+import jsonLogo from "/jsonLogo.png"
+import headshot from "/headshot.jpeg"
 
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer"
@@ -119,7 +119,7 @@ function Site() {
                         <img className="headshot" src={headshot}></img>
                         <div className="leftsideText">
                             <h1 className="nameTitle">Aidan James</h1>
-                            <h2 className="nameText">MSc Buisness Analytics 2026 Candidate <a href="https://www.ivey.uwo.ca/" target="_blank" className="iveyColor">Ivey Business School</a></h2>
+                            <h2 className="nameText">MSc Buisness Analytics 26' Candidate <a href="https://www.ivey.uwo.ca/" target="_blank" className="iveyColor">Ivey Business School</a></h2>
                         </div>
                     </div>
                 
@@ -130,7 +130,7 @@ function Site() {
                             smooth={true} // smooth scroll
                             duration={500} // 500ms
                             spy={true} // link is selected when scroll at traget postion
-                            offset={-20}
+                            offset={-100}
                         >
                             <b style={textStyleAbout} className="navAboutText">ABOUT</b>
                             <span style={textStyleAbout} className="navButtonLine"></span>
@@ -195,29 +195,43 @@ function Site() {
                     {/* about me section */}
                     <section id="about" className="aboutMe">
                         <b className="aboutMeText">
-                            I have recently graduated from  
+                            I am currently pursuing a Master's of Science in   
+                        </b>
+                        <span style={{color:"#034638"}} className="aboutMeTextColor"> Buisness Analytics </span>
+
+                        <b className="aboutMeText">
+                            at
+                        </b>
+                        <span style={{color:"#034638"}} className="aboutMeTextColor"> Ivey Business School</span>
+
+                        <b className="aboutMeText">
+                            , building off of my
+                        </b>
+                        <span style={{color:"#4F2683"}} className="aboutMeTextColor"> Computer Science </span>
+
+                        <b className="aboutMeText">
+                            degree from
                         </b>
                         <span style={{color:"#4F2683"}} className="aboutMeTextColor"> Western University</span>
+
                         <b className="aboutMeText">
-                            , with a Bachelors of Science majoring in
+                            . Beyond academics, I am interested in finance where I apply my technical and analytical knowledge to assist my investment decisions.
                         </b>
-                        <span style={{color:"#4F2683"}} className="aboutMeTextColor"> Computer Science</span> 
+                         
+                        <p></p> 
+
                         <b className="aboutMeText">
-                            . Currently, I am attending
+                            I created and implemented operational and governance changes as a Business Consultant, securing a successful certification audit 
+                            while also engineered automated models to drive efficiency. My technical background extends to web development, where I designed 
+                            and deployed a company’s official website and maintain a this portfolio showcasing my latest coding projects! Beyond analytics, 
+                            I co-founded and scaled the Western University Poker Club to 270 members, where I led executive teams and managed large-scale event logistics.
                         </b>
-                        <span style={{color:"#034638"}} className="aboutMeTextColor"> Ivey Business School </span>
-                        <b className="aboutMeText">
-                            and am a candidate for the 26' Masters of Science in 
-                        </b>
-                        <span style={{color:"#034638"}} className="aboutMeTextColor"> Buisness Analytics</span>
-                        <b className="aboutMeText">
-                            .
-                        </b>
+
                         <p></p>
+
                         <b className="aboutMeText">
-                            I am fluent in English, and French as a second languaged having earned my high school diploma in French Immersion.
-                            I have been playing competitive sports my whole life, including hockey, soccer, track and field, and cross country.
-                            Recently, I have been playing volleyball and golf when not studying while also weighlifting, investing, and spending time with friends.
+                            I am interested in leveraging strategic insights and technical innovation to drive impactful business decisions in the fields of 
+                            finance and analytics. Learn more about me and my experiance below!
                         </b>
                     </section>
 
@@ -229,7 +243,24 @@ function Site() {
                             <span className="subheadLine"></span>
                         </div>
 
-                        {/* first experiance */}
+                        {/* most recent experiance */}
+                        <div className="experianceCard">
+                            <div className="timeline">
+                                <b>Dec 2025 - Jan 2026 </b>
+                            </div>
+                            <div className="textContain">
+                                <h2>Business Consultant</h2>
+                                <h3>Contracted by Lambton Scientific</h3>
+                                <p>
+                                    I was contracted to determine and implemente comprehensive changes to operations, organization, and governance 
+                                    making critical decisions to successfully pass a certification audit. This involved analyzing audit problem statements
+                                    and creating innovative, efficient solutions from them. I also created automated Excel worksheets to calculate chemical formulas, 
+                                    expiditing reporting times and reducing errors.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* experiance card */}
                         <div className="experianceCard">
                             <div className="timeline">
                                 <b>July 2025 - Aug 2025 </b>
@@ -238,36 +269,34 @@ function Site() {
                                 <h2>Fairwind Farms</h2>
                                 <h3>Property Management</h3>
                                 <p>
-                                    In this role I: operated and maintained farm equipment and tools to support 
-                                    daily operations, collaborating with coworkers to ensure efficiency, which 
-                                    resulted in reduced equipment downtime, extended lifespan, and safety 
-                                    improvements. I also Collaborated with a team of 8 staff to complete time-sensitive 
-                                    farming projects, contributing to smooth operations.
+                                    In this role I: collaborated with team members to ensure instructions clearly communicated to streamline 
+                                    operations, resulting in reduced equipment downtime and improved safety compliance. Proactively initiated 
+                                    efficiency improvements after analyzing possible risks that directly contributed to cost reductions and 
+                                    maximized crop yields.
                                 </p>
                             </div>
                         </div>
 
-                        {/* experiance cards */}
-                        {/* second experiance */}
+                        {/* experiance card */}
                         <div className="experianceCard">
                             <div className="timeline">
                                 <b>May 2022 - Aug 2024</b>
                             </div>
                             <div className="textContain">
                                 <h2>Lambton Scientific</h2>
-                                <h3>Lab Technician / Developer</h3>
+                                <h3>Lab Tech {'>'} Excel Modelling {'>'} Developer</h3>
                                 <p>
-                                    In this role I: handled environmental samples and completed a variety of 
-                                    testing on them. Obtained data from sampling software and 
-                                    recorded data using excel. Created and manage company website. Refining and creating
-                                    new excel record and calculation spreadsheets to be used and given to clients.
-                                    In this position, I perfected time management due to the juggling of tasks
-                                    as well as cooperation and communication with co-workers along with real world development experience.
+                                    In this role I: executed end-to-end preparation and testing of environmental samples while processing data via 
+                                    specialized software to ensure timely reporting for client retention. Trained and mentored new hires on laboratory 
+                                    safety protocols, reporting standards, and operational procedures. Next, I engineered and refined Excel models to 
+                                    automate chemical calculations, significantly improving internal workflow efficiency and accuracy of client reports.
+                                    Finally, I Designed and deployed company’s official website using React and Tailwind CSS, optimizing SEO to boost 
+                                    Google rankings, increasing site traffic, and driving new client acquisition.
                                 </p>
                             </div>
                         </div>
 
-                        {/* third experiance */}
+                        {/* experiance card */}
                         <div className="experianceCard">
                             <div className="timeline">
                                 <b>July 2020 - Aug 2021 </b>
@@ -286,7 +315,7 @@ function Site() {
                             </div>
                         </div>
 
-                        {/* fourth experiance */}
+                        {/* experiance card */}
                         <div className="experianceCard">
                             <div className="timeline">
                                 <b>Jan 2019 - Aug 2021</b>
