@@ -135,7 +135,7 @@ function Site() {
                     setError("Could not fetch weather data.");
                 }
             }, (err) => {
-                setError("Location access denied.");
+                setError("Denied");
                 setLocation({ city: "Location Disabled", lat: null, lon: null });
             });
         } else {
@@ -182,11 +182,11 @@ function Site() {
                         <h2>{dateTime.time}</h2>
                     </div>
                     <div className="weather-group">
-                        <b>{location.city}</b>
+                        <b>{location.city} - </b>
                         {temp !== null ? (
-                            <pre className="temp"> - {temp}°C</pre>
+                            <pre className="temp"> {temp}°C</pre>
                         ) : (
-                            <b>{error ? error : ""}</b>
+                            <b>{error ? error : " "}</b>
                         )}
                     </div>
                 </div>
@@ -231,7 +231,7 @@ function Site() {
 
                         <div>
                             <h1>MORE</h1>
-                            <h2>
+                            <h2 className='defaultText'>
                                 I am interested in finance where I apply my technical and analytical knowledge to 
                                 assist my investment decisions. I created and implemented operational and governance 
                                 changes as a Business Consultant, securing a successful certification audit while also 
@@ -239,6 +239,16 @@ function Site() {
                                 development, where I designed and deployed a company’s official website and maintain this site! 
                                 Beyond analytics, I co-founded 
                                 and scaled the Western University Poker Club to 270 members, where I led executive teams 
+                                and managed large-scale event logistics. 
+                                I am interested in leveraging strategic insights 
+                                and technical innovation to drive impactful business decisions in the fields of finance 
+                                and analytics.
+                            </h2>
+
+                            <h2 className='mobileText'>
+                                I am interested in finance where I apply my technical and analytical knowledge to 
+                                assist my investment decisions. I co-founded 
+                                and scaled the Western University Poker Club to 270 members. Here I led executive teams 
                                 and managed large-scale event logistics. 
                                 I am interested in leveraging strategic insights 
                                 and technical innovation to drive impactful business decisions in the fields of finance 
@@ -379,7 +389,7 @@ function Site() {
 
                             <b className='mobileText'>An adaptation of the original "Snake" game. The game is hosted on a server which supports multiplayer and chat.</b>
                         </div>
-                        <img src='/snake.jpeg' alt='p3' />
+                        <img src='/snake.jpg' alt='p3' />
                     </div>
 
                     <div className='rowLine'>
@@ -403,7 +413,7 @@ function Site() {
                             <b>I built a model that uses Linear Regression and last year's data to predict next year's NFL Champion and their chances.</b>
                             <b className='mobileText'>I built a model that uses Linear Regression and last year's data to predict next year's NFL Champion and their chances.</b>
                         </div>
-                        <img src='/mesh.png' alt='p5' />
+                        <img src='/NFL.png' alt='p5' />
                     </div>
                 </div>
             </section>
