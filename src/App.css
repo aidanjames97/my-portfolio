@@ -1,6 +1,7 @@
 /* entire application */
 .App {
-  background-color: #02162c;
+  background-color: #181818;
   overflow: hidden;
   scrollbar-width: 0;
+  scrollbar-color: transparent;
 }

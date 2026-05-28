@@ -1,516 +1,445 @@
-import React, {useState, useEffect } from "react"
-import "./site.css"
+import React, { useState, useEffect, useCallback, memo } from 'react';
+import './site.css';
 
-import github from "/githubWhite.png"
-import linkedin from "/linkedinWhite.png"
-import cLogo from "/cLogo.png"
-import cssLogo from "/cssLogo.png"
-import htmlLogo from "/htmlLogo.png"
-import javaLogo from "/lavaLogo.png"
-import pythonLogo from "/pythonLogo.png"
-import reactLogo from "/reactLogo.png"
-import vbaLogo from "/vbaLogo.png"
-import jsLogo from "/jsLogo.png"
-import snake from "/Snake.jpeg"
-import site from "/site.png"
-import spell from "/spellSC.png"
-import resume from "/Resume.pdf"
-import app from "/app.png"
-import cppLogo from "/cppLogo.png"
-import swiftLogo from "/swiftLogo.png"
-import phpLogo from "/phpLogo.png"
-import jsonLogo from "/jsonLogo.png"
-import headshot from "/headshot.jpeg"
+// getting screen width for spot sizes
+const viewportWidth = window.innerWidth
 
-import { Link } from "react-scroll";
-import { useInView } from "react-intersection-observer"
+// array w/ section
+const SECTIONS = ['home', 'about', 'experience', 'projects', 'contact'];
 
-function openPDF() {
-    window.open(resume, "_blank");
-}
+// ramdomizing coorinates and spot sizes
+const getRandomPos = () => ({
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  size: Math.random() * (100 - 40) + 40,
+});
 
-// page elements
-function Site() { 
-    // hook returns boolean 'inView' and a ref to attach 
-    const [ref, inView] = useInView({
-        triggerOnce: true, // Only trigger once when the element enters the viewport
-        threshold: 0.5, // Trigger when at least 50% of the element is in the viewport
-    });
-
-    // State to hold the scroll position
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  // Function to handle scroll event and update scrollPosition state
-  const handleScroll = () => {
-    const currentPosition = window.scrollY;
-    setScrollPosition(currentPosition);
-  };
-
-  // Attach the scroll event listener when the component mounts
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      // Clean up the scroll event listener when the component unmounts
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  // Calculate the page height (you can adjust this based on your layout)
-  const pageHeight = document.documentElement.scrollHeight;
-
-  // top of page
-  const aboutScroll = 0;
-  // experiance part of page
-  const experianceScroll = pageHeight * 0.1;
-  // projects part of page
-  const projectScroll = pageHeight * 0.3;
-  // languages part of page
-  const languageScroll = pageHeight * 0.66;
-
-  // scroll position for about
-  const textColorAbout = (scrollPosition >= aboutScroll) && (scrollPosition < experianceScroll) ? 'rgb(230, 230, 255)' : 'rgb(169, 169, 189)';
-  const aboutWeight = (scrollPosition >= aboutScroll) && (scrollPosition < experianceScroll) ? 700 : 500;
-  // scroll position for experiance
-  const textColorExperiance = (scrollPosition >= experianceScroll) && (scrollPosition < projectScroll) ? 'rgb(230, 230, 255)' : 'rgb(169, 169, 189)';
-  const experianceWeight = (scrollPosition >= experianceScroll) && (scrollPosition < projectScroll) ? 700 : 500;
-  // scroll position for projects
-  const textColorProjects = (scrollPosition >= projectScroll) && (scrollPosition < languageScroll) ? 'rgb(230, 230, 255)' : 'rgb(169, 169, 189)';
-  const projectsWeight = (scrollPosition >= projectScroll) && (scrollPosition < languageScroll) ? 700 : 500;
-  // scroll position for languages
-  const textColorLanguages = scrollPosition >= languageScroll ? 'rgb(230, 230, 255)' : 'rgb(169, 169, 189)';
-  const languagesWeight = scrollPosition >= languageScroll ? 700 : 500;
-
-  // applying styling dynamically
-  const textStyleAbout = {
-    color: textColorAbout,
-    fontWeight: aboutWeight,
-  };
-  const textStyleExperiance = {
-    color: textColorExperiance,
-    fontWeight: experianceWeight,
-  };
-  const textStyleProjects = {
-    color: textColorProjects,
-    fontWeight: projectsWeight,
-  };
-  const textStyleLanguages = {
-    color: textColorLanguages,
-    fontWeight: languagesWeight,
-  };
-
-  // for init load
-  const [isLoaded, setIsLoaded] = useState(false);
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsLoaded(true);
-
-    }, 1); // 1ms delay (can be increaed to simulate loading)
-
-    return () => clearTimeout(timeout);
-  }, []);
-        
-    return (
-        <div className={`page3Contain ${isLoaded ? 'loaded' : ''}`}>
-            {/* page contents */}
-            <div className="page3text">
-                {/* left side of page */} 
-                <div className="leftSide">
-                    <div className="picName">
-                        <img className="headshot" src={headshot}></img>
-                        <div className="leftsideText">
-                            <h1 className="nameTitle">Aidan James</h1>
-                            <h2 className="nameText">MSc Buisness Analytics 26' Candidate <a href="https://www.ivey.uwo.ca/" target="_blank" className="iveyColor">Ivey Business School</a></h2>
-                        </div>
-                    </div>
-                
-                    {/* navbar items */}
-                    <div className="navbar">
-                        <Link className="navButton"
-                            to="about" // section name
-                            smooth={true} // smooth scroll
-                            duration={500} // 500ms
-                            spy={true} // link is selected when scroll at traget postion
-                            offset={-100}
-                        >
-                            <b style={textStyleAbout} className="navAboutText">ABOUT</b>
-                            <span style={textStyleAbout} className="navButtonLine"></span>
-                        </Link>
-
-                        <Link className="navButton"
-                            to="experiance" // section name
-                            smooth={true} // smooth scroll
-                            duration={500} // 500ms
-                            spy={true} // link is selected when scroll at traget postion
-                            offset={-20}
-                        >
-                            <b style={textStyleExperiance} className="navExperianceText">EXPERIENCE</b>
-                            <span className="navButtonLine"></span>
-                        </Link>
-                        <Link className="navButton"
-                            to="projects" // section name
-                            smooth={true} // smooth scroll
-                            duration={500} // 500ms
-                            spy={true} // link is selected when scroll at traget postion
-                            offset={-20}
-                        >
-                            <b style={textStyleProjects} className="navProjectsText">PROJECTS</b>
-                            <span className="navButtonLine"></span>
-                        </Link>
-                        <Link className="navButton"
-                            to="languages" // section name
-                            smooth={true} // smooth scroll
-                            duration={500} // 500ms
-                            spy={true} // link is selected when scroll at traget postion
-                            offset={-20}
-                        >
-                            <b style={textStyleLanguages} className="navLanguagesText">LANGUAGES</b>
-                            <span className="navButtonLine"></span> 
-                        </Link>
-                        <Link className="navButton"
-                            to="contact" // section name
-                            smooth={true} // smooth scroll
-                            duration={500} // 500ms
-                            spy={true} // link is selected when scroll at traget postion
-                            offset={-20}
-                        >
-                            <b style={textStyleLanguages} className="navLanguagesText">CONTACT ME</b> 
-                        </Link>
-
-                        {/* socials */}
-                        <div className="socialLogo">
-                            {/* link to sites and open in new tab */}
-                            <a href="http://www.linkedin.com/in/aidanjames/" target="_blank" rel="noreferrer">
-                                <img className="logo" src={linkedin} alt="linkedin"></img>
-                            </a>
-                            <a href="https://github.com/aidanjames97" target="_blank" rel="noreferrer">
-                                <img className="logo" src={github} alt="github"></img>
-                            </a>
-                            <button className="resumeButton" onClick={openPDF}>Resume</button>
-                        </div>
-                    </div>
-                </div>
-
-                {/* right side of page */}
-                <div className="rightSide">
-                    {/* about me section */}
-                    <section id="about" className="aboutMe">
-                        <b className="aboutMeText">
-                            I am currently pursuing a Master's of Science in   
-                        </b>
-                        <span style={{color:"#034638"}} className="aboutMeTextColor"> Buisness Analytics </span>
-
-                        <b className="aboutMeText">
-                            at
-                        </b>
-                        <span style={{color:"#034638"}} className="aboutMeTextColor"> Ivey Business School</span>
-
-                        <b className="aboutMeText">
-                            , building off of my
-                        </b>
-                        <span style={{color:"#4F2683"}} className="aboutMeTextColor"> Computer Science </span>
-
-                        <b className="aboutMeText">
-                            degree from
-                        </b>
-                        <span style={{color:"#4F2683"}} className="aboutMeTextColor"> Western University</span>
-
-                        <b className="aboutMeText">
-                            . Beyond academics, I am interested in finance where I apply my technical and analytical knowledge to assist my investment decisions.
-                        </b>
-                         
-                        <p></p> 
-
-                        <b className="aboutMeText">
-                            I created and implemented operational and governance changes as a Business Consultant, securing a successful certification audit 
-                            while also engineered automated models to drive efficiency. My technical background extends to web development, where I designed 
-                            and deployed a company’s official website and maintain a this portfolio showcasing my latest coding projects! Beyond analytics, 
-                            I co-founded and scaled the Western University Poker Club to 270 members, where I led executive teams and managed large-scale event logistics.
-                        </b>
-
-                        <p></p>
-
-                        <b className="aboutMeText">
-                            I am interested in leveraging strategic insights and technical innovation to drive impactful business decisions in the fields of 
-                            finance and analytics. Learn more about me and my experiance below!
-                        </b>
-                    </section>
-
-                    {/* Experiance section */}
-                    <section id="experiance" className={`scroll-element ${inView ? 'scroll-effect' : ''}`} ref={ref}>
-                        {/* subheading */}
-                        <div className="subheadTitleContain">
-                            <h1 className="subheadTitle">Experience</h1>
-                            <span className="subheadLine"></span>
-                        </div>
-
-                        {/* most recent experiance */}
-                        <div className="experianceCard">
-                            <div className="timeline">
-                                <b>Dec 2025 - Jan 2026 </b>
-                            </div>
-                            <div className="textContain">
-                                <h2>Business Consultant</h2>
-                                <h3>Contracted by Lambton Scientific</h3>
-                                <p>
-                                    I was contracted to determine and implemente comprehensive changes to operations, organization, and governance 
-                                    making critical decisions to successfully pass a certification audit. This involved analyzing audit problem statements
-                                    and creating innovative, efficient solutions from them. I also created automated Excel worksheets to calculate chemical formulas, 
-                                    expiditing reporting times and reducing errors.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* experiance card */}
-                        <div className="experianceCard">
-                            <div className="timeline">
-                                <b>July 2025 - Aug 2025 </b>
-                            </div>
-                            <div className="textContain">
-                                <h2>Fairwind Farms</h2>
-                                <h3>Property Management</h3>
-                                <p>
-                                    In this role I: collaborated with team members to ensure instructions clearly communicated to streamline 
-                                    operations, resulting in reduced equipment downtime and improved safety compliance. Proactively initiated 
-                                    efficiency improvements after analyzing possible risks that directly contributed to cost reductions and 
-                                    maximized crop yields.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* experiance card */}
-                        <div className="experianceCard">
-                            <div className="timeline">
-                                <b>May 2022 - Aug 2024</b>
-                            </div>
-                            <div className="textContain">
-                                <h2>Lambton Scientific</h2>
-                                <h3>Lab Tech {'>'} Excel Modelling {'>'} Developer</h3>
-                                <p>
-                                    In this role I: executed end-to-end preparation and testing of environmental samples while processing data via 
-                                    specialized software to ensure timely reporting for client retention. Trained and mentored new hires on laboratory 
-                                    safety protocols, reporting standards, and operational procedures. Next, I engineered and refined Excel models to 
-                                    automate chemical calculations, significantly improving internal workflow efficiency and accuracy of client reports.
-                                    Finally, I Designed and deployed company’s official website using React and Tailwind CSS, optimizing SEO to boost 
-                                    Google rankings, increasing site traffic, and driving new client acquisition.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* experiance card */}
-                        <div className="experianceCard">
-                            <div className="timeline">
-                                <b>July 2020 - Aug 2021 </b>
-                            </div>
-                            <div className="textContain">
-                                <h2>Metro</h2>
-                                <h3>Grocery Clerk</h3>
-                                <p>
-                                    In this role I: assisted customers depending on their needs, 
-                                    stocked shelves, receiving and unloaded deliveries from trucks while coordinating 
-                                    with inventory. I created displays and incorporated them on the 
-                                    floor in an organized and tidy layout. Managed inventory, returns, and expired products using 
-                                    company software. In this position communication, time management, and personal responsibility were
-                                    crucial as often I would work alone on tasks or had to coordinate with others.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* experiance card */}
-                        <div className="experianceCard">
-                            <div className="timeline">
-                                <b>Jan 2019 - Aug 2021</b>
-                            </div>
-                            <div className="textContain">
-                                <h2>McDonalds</h2>
-                                <h3>Customer Service</h3>
-                                <p>
-                                    In this role I: interacted and served 100+ customers an hour, taking and completing orders 
-                                    using POS. I Handled money, fulfilled returns, organized 
-                                    orders, and track order completion time. In this position, 
-                                    communication and time management were essential and I developed these skills.
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* projects portion of the page */}
-                    <section id="projects" className="projectContainer">
-                        {/* subheading */}
-                        <div className="subheadTitleContain">
-                            <span className="subheadLine"></span>
-                            <h1 className="subheadTitle">Projects</h1>
-                        </div>
-
-                        {/* first project */}
-                        <div className="projectCard">
-                            <div className="leftSidePic">
-                                <img className="projectPic" src={site} alt="site"></img>
-                            </div>
-                            <div className="rightSideText">
-                                <h1 className="projectTitle">Company Website</h1>
-                                <div className="projectText">
-                                    <b>
-                                        Using React and other design tools, I created the graphics, designed the webpage, took photos, and developed the webpage.
-                                        I was tasked with creating a new, modern webpage for Lambton Scientific, check it out at:
-                                    </b>
-                                    <a href="https://www.lambtonscientific.com/"> www.lambtonscientific.com</a>
-                                </div>
-                                <div className="codingTypes">
-                                    <b>React</b>
-                                    <b>SEO</b>
-                                    <b>Graphic Design</b>
-
-                                    <div className="socialLinkContain">
-                                        <a href="http://www.linkedin.com/in/aidanjames/" target="_blank" rel="noreferrer">
-                                            <img className="socialLink" src={linkedin} alt="Linkedin"></img>
-                                        </a>
-                                        <a href="https://github.com/aidanjames97" target="_blank" rel="noreferrer">
-                                            <img className="socialLink" src={github} alt="Github"></img>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* second project */}
-                        <div className="projectCard">
-                            <div className="leftSideText">
-                                <h1 className="projectTitle">Snake Game</h1>
-                                <div className="projectText">
-                                    <b>
-                                    I replicated the popular online arcade game snake, eating apples 
-                                    increases snake’s length by one. The game speed increases and bombs also spawn 
-                                    which the player must dodge. This game uses a server to host a chatroom and allows for
-                                    multiplayer. 
-                                    </b>
-                                </div>
-                                <div className="codingTypes">
-                                    <b>Python</b>
-                                    <b>Pygame</b>
-                                    <b>IP</b>
-
-                                    <div className="socialLinks">
-                                        <a href="http://www.linkedin.com/in/aidanjames/" target="_blank" rel="noreferrer">
-                                            <img className="socialLink" src={linkedin} alt="Linkedin"></img>
-                                        </a>
-                                        <a href="https://github.com/aidanjames97" target="_blank" rel="noreferrer">
-                                            <img className="socialLink" src={github} alt="Github"></img>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="leftSidePic">
-                                <img className="projectPic" src={snake} alt="snake"></img>
-                            </div>
-                        </div>
-
-                        {/* third project */}
-                        <div className="projectCard">
-                            <div className="leftSidePic">
-                                <img className="projectPic" src={app} alt="app"></img>
-                            </div>
-                            <div className="rightSideText">
-                                <h1 className="projectTitle">Golf Tracker</h1>
-                                <div className="projectText">
-                                    <b>
-                                        Since I love to play golf, I decided to create an IOS App which allows
-                                        users to track their rounds as well as look at other courses using data I scraped from
-                                        an online course database.
-                                    </b>
-                                </div>
-                                <div className="codingTypes">
-                                    <b>Swift</b>
-                                    <b>MapKit</b>
-                                    <b>Python</b>
-
-                                    <div className="socialLinks">
-                                        <a href="http://www.linkedin.com/in/aidanjames/" target="_blank" rel="noreferrer">
-                                            <img className="socialLink" src={linkedin} alt="Linkedin"></img>
-                                        </a>
-                                        <a href="https://github.com/aidanjames97" target="_blank" rel="noreferrer">
-                                            <img className="socialLink" src={github} alt="Github"></img>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* fourth project */}
-                        <div className="projectCard">
-                            <div className="leftSideText">
-                                <h1 className="projectTitleL">Spell Checker</h1> 
-                                <div className="projectTextL">
-                                    <b>
-                                        For my CS class, Data Structures and Algorithms, we were 
-                                        tasked in making a java program which takes a file and reads 
-                                        the words, checking their spelling, and giving correction options 
-                                        to the user.
-                                    </b>
-                                </div>
-                                <div className="codingTypes">
-                                    <b>Java</b>
-                                    <b>Data Structures</b>
-                                    <b>Jira</b>
-
-                                    <div className="socialLinkContain">
-                                        <a href="http://www.linkedin.com/in/aidanjames/" target="_blank" rel="noreferrer">
-                                            <img className="socialLink" src={linkedin} alt="Linkedin"></img>
-                                        </a>
-                                        <a href="https://github.com/aidanjames97" target="_blank" rel="noreferrer">
-                                            <img className="socialLink" src={github} alt="Github"></img>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rightSidePic">
-                                <img className="projectPic" src={spell} alt="spell"></img>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* languages section of page */}
-                    <section id="languages" className="languagesContainer">
-                        <div className="subheadTitleContain">
-                            <h1 className="subheadTitle">Languages</h1>
-                            <span className="subheadLine"></span>
-                        </div>
-
-                        <div className="languageLogoContainer">
-                            <img className="languageLogo" src={cLogo} alt="c"></img>
-                            <img className="languageLogo" src={cssLogo} alt="css"></img>    
-                            <img className="languageLogo" src={htmlLogo} alt="html"></img>
-                            <img className="languageLogo" src={jsLogo} alt="js"></img>
-                            <img className="languageLogo" src={javaLogo} alt="java"></img>
-                            <img className="languageLogo" src={pythonLogo} alt="python"></img>
-                            <img className="languageLogo" src={reactLogo} alt="react"></img>
-                            <img className="languageLogo" src={vbaLogo} alt="vba"></img>
-                            <img className="languageLogo" src={swiftLogo} alt="swift"></img>
-                            <img className="languageLogo" src={cppLogo} alt="cpp"></img>
-                            <img className="languageLogo" src={phpLogo} alt="php"></img>
-                            <img className="languageLogo" src={jsonLogo} alt="json"></img>
-                        </div>
-                        <div className="gitLinkContainer">
-                            <a className="gitLink" target={"_blank"} rel="noreferrer" href="https://github.com/aidanjames97">
-                                <span>View more!</span>
-                            </a>
-                        </div>
-                    </section>
-
-                    {/* contact me section of page */}
-                    <section id="contact" className="contactContainer">
-                        {/* subheading */}
-                        <div className="subheadTitleContain">
-                            <span className="subheadLine"></span>
-                            <h1 className="subheadTitle">Contact</h1>
-                        </div>
-
-                        <div className="contactHeaderText">
-                            <a href="mailto:aidan97james@gmail.com?subject=Website%20Question%20">Feel free to contact me with questions or suggestions!</a>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div> 
+// Breathing Spots for landing and footer
+const BackgroundSpots = memo(() => {
+    // changing amount of spots for mobile users (less clutter)
+    const s = 7
+    if (viewportWidth < 768) {
+        const s = 4
+    }
+    const [spots, setSpots] = useState(
+        Array.from({ length: s }).map((_, i) => ({
+          id: i,
+          ...getRandomPos(),
+          delay: Math.random() * -10, // Desyncs the animations
+        }))
+      );
+    
+      // Function to move a specific spot (called when it's invisible)
+      const relocateSpot = useCallback((id) => {
+        setSpots((prev) =>
+          prev.map((spot) =>
+            spot.id === id ? { ...spot, ...getRandomPos() } : spot
+        )
     );
-}
+}, []);
+
+    return (
+        <div className="background-container">
+        {spots.map((spot) => (
+            <div
+            key={spot.id}
+            className="bg-spot"
+            onAnimationIteration={() => relocateSpot(spot.id)}
+            style={{
+                width: `${spot.size}px`,
+                height: `${spot.size}px`,
+                left: `${spot.x}vw`,
+                top: `${spot.y}vh`,
+                animationDelay: `${spot.delay}s`,
+            }}
+            />
+        ))}
+        </div>
+    );
+});
+
+// full site component
+function Site() {
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const [isHovering, setIsHovering] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
+
+    const [dateTime, setDateTime] = useState({ time: '', date: '' });
+    const [location, setLocation] = useState({ city: 'Locating', lat: null, lon: null });
+    const [temp, setTemp] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        // Cursor logic
+        const handleMouseMove = (event) => {
+            setMousePos({ x: event.clientX, y: event.clientY });
+            const target = event.target;
+            // Check if hovering over link/button
+            setIsHovering(target.tagName === 'A' || target.closest('a') || target.tagName === 'BUTTON');
+        };
+
+        // Navbar observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.6,
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        
+        const sections = document.querySelectorAll('.page');
+        sections.forEach((section) => observer.observe(section));
+
+        window.addEventListener('mousemove', handleMouseMove);
+
+        // Get Date and Time
+        const updateDateTime = () => {
+            const now = new Date();
+            setDateTime({
+                time: now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                date: now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' })
+            });
+        };
+        updateDateTime();
+        const interval = setInterval(updateDateTime, 60000); // Update every minute
+
+        // Get Location and Temperature
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                const { latitude, longitude } = position.coords;
+                setLocation(prev => ({ ...prev, lat: latitude, lon: longitude }));
+
+                try {
+                    // Fetch weather based on coordinates
+                    const response = await fetch(
+                        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
+                    );
+                    const data = await response.json();
+                    setTemp(data.current_weather.temperature);
+                    
+                    // Optional: Get city name using "Reverse Geocoding"
+                    const geoRes = await fetch(
+                        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+                    );
+                    const geoData = await geoRes.json();
+                    setLocation(prev => ({ ...prev, city: geoData.address.city || geoData.address.town || "Unknown" }));
+                } catch (err) {
+                    setError("Could not fetch weather data.");
+                }
+            }, (err) => {
+                setError("Location access denied.");
+                setLocation({ city: "Location Disabled", lat: null, lon: null });
+            });
+        } else {
+            setError("Geolocation not supported by browser.");
+        }
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            sections.forEach((section) => observer.unobserve(section));
+            clearInterval(interval);
+        };
+    }, []);  
+  
+    return (
+        <div className='container'>
+            {/* CURSOR */}
+            <div className={`cursor-wrapper ${isHovering ? 'hovering' : ''}`}
+                style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
+            >
+                <div className="cursor-glow"></div>
+                <div className="cursor-centre"></div>
+            </div>
+
+            {/* Right Side Navbar */}
+            <nav className='navbar'>
+                {SECTIONS.map((section) => (
+                    <a 
+                        key={section} 
+                        href={`#${section}`} 
+                        className={`nav-item ${activeSection === section ? 'active' : ''}`}
+                    >
+                        {section}
+                    </a>
+                ))}
+            </nav>
+
+            <div className='content'>
+            {/* Landing */}
+            <section className="page" id="home">
+                <BackgroundSpots />
+                <div className="info-display">
+                    <div className="time-group">
+                        <b>{dateTime.date}</b>
+                        <h2>{dateTime.time}</h2>
+                    </div>
+                    <div className="weather-group">
+                        <b>{location.city}</b>
+                        {temp !== null ? (
+                            <pre className="temp"> - {temp}°C</pre>
+                        ) : (
+                            <b>{error ? error : ""}</b>
+                        )}
+                    </div>
+                </div>
+
+                <div className='landingContainer'>
+                    <b>Hey, I'm <span className="lightText">Aidan</span></b>
+                    <b>I'm a <span className="lightText">business analytics</span> student at Ivey Business School</b>
+                    <b className='currently'>Incoming Data Analyst at <span className='lightText'>Scotiabank</span></b>
+                </div>
+            </section>
+
+            {/* About */}
+            <section className="page" id='about'>
+                <h1 className='bg-text'>About me</h1>
+                <div className='aboutContainer'>
+                    <div className='image'>
+                        <img src='me.png' alt="Aidan" />
+                    </div>
+                    <div className='text'>
+                        <div>
+                            <h1>EDUCATION</h1>
+                            <h2 className='default'>Bachelors of Science, Computer Science @ Western University</h2>
+                            <h2 className='default'>Masters of Science, Business Analytics @ Ivey Business School</h2>
+                            <h2 className='mobile'>BSc Computer Science @ UWO</h2>
+                            <h2 className='mobile'>MSc Business Analytics @ Ivey</h2>
+                        </div>
+
+                        <div>
+                            <h1>LOCATION</h1>
+                            <h2>London, Ontario</h2>
+                        </div>
+
+                        <div>
+                            <h1>PERSONAL INTERESTS</h1>
+                            <h2>Finance, Tech, Golf, Poker, Working Out</h2>
+                        </div>
+
+                        <div>
+                            <h1>TECHNICALS</h1>
+                            <h2>Excel, Python, R, React, VBA, Java, SQL</h2>
+                        </div>
+
+                        <div>
+                            <h1>MORE</h1>
+                            <h2>
+                                I am interested in finance where I apply my technical and analytical knowledge to 
+                                assist my investment decisions. I created and implemented operational and governance 
+                                changes as a Business Consultant, securing a successful certification audit while also 
+                                engineered automated models to drive efficiency. My technical background extends to web 
+                                development, where I designed and deployed a company’s official website and maintain this site! 
+                                Beyond analytics, I co-founded 
+                                and scaled the Western University Poker Club to 270 members, where I led executive teams 
+                                and managed large-scale event logistics. 
+                                I am interested in leveraging strategic insights 
+                                and technical innovation to drive impactful business decisions in the fields of finance 
+                                and analytics.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Experience */}
+            <section className="page" id='experience'>
+                <h1 className='bg-text'>Experience</h1>
+
+                <div className='experienceContainer'>
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p><span className='lightText'>Data Analyst</span> - Scotiabank</p>
+                            <b className='dateMobile'>MAY 2026 - PRESENT</b>
+                            <b>Create and develop a market sentiment indicator surrounding Canadian and US banks. 
+                                Analyze retail and analysit sentiment to provide holistic views on banks. Created using
+                                a mix of Python, Powerpoint, and AI</b>
+                        </div>
+                        <b className='date'>MAY 2026 - PRESENT</b>
+                    </div>
+
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p><span className='lightText'>Investor</span> - Personal</p>
+                            <b className='dateMobile'>FEB 2021 - PRESENT</b>
+                            <b>
+                                Managed personal equity portfolios with a focus on value investing, consistently 
+                                outperforming S&P 500 over a 4-year period. Analyzed fundamental and quantitative data 
+                                to execute trades while maintaining risk levels.
+                            </b>
+                        </div>
+                        <b className='date'>FEB 2021 - PRESENT</b>
+                    </div>
+
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p><span className='lightText'>Business Consultant</span> - IEH Laboratories</p>
+                            <b className='dateMobile'>NOV 2025 - JAN 2026</b>
+                            <b>
+                                Determined and implemented comprehensive changes to operations, organization, 
+                                and governance making critical decisions to successfully pass a certification 
+                                audit. Created and implemented Excel sheets used for HR, Operations, and Admin.
+                            </b>
+                        </div>
+                        <b className='date'>NOV 2025 - JAN 2026</b>
+                    </div>
+
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p><span className='lightText'>Property Management</span> - Fairwind Farms</p>
+                            <b className='dateMobile'>MAY 2025 - AUG 2025</b>
+                            <b>
+                                Collaborated with team members and solved problems independantly to 
+                                streamline operations, resulting in reduced equipment downtime, improved 
+                                safety compliance, and yeild maximixation.
+                            </b>
+                        </div>
+                        <b className='date'>MAY 2025 - AUG 2025</b>
+                    </div>
+
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p><span className='lightText'>Developer</span> - Lambton Scientific</p>
+                            <b className='dateMobile'>MAY 2024 - AUG 2024</b>
+                            <b>
+                                Designed and deployed company’s official website using React and Tailwind CSS, 
+                                optimizing SEO to boost Google rankings, increasing site traffic, and driving new 
+                                client acquisition. Engineered and refined Excel models to automate chemical 
+                                calculations, significantly improving internal workflow efficiency and accuracy 
+                                of client reports.
+                            </b>
+                        </div>
+                        <b className='date'>MAY 2024 - AUG 2024</b>
+                    </div>
+
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p><span className='lightText'>Lab Technician</span> - Lambton Scientific</p>
+                            <b className='dateMobile'>MAY 2022 - AUG 2023</b>
+                            <b>
+                                Executed end-to-end preparation and testing of environmental samples while processing 
+                                data, ensuring timely reporting for client retention. 
+                                Trained and mentored new hires on laboratory safety protocols, reporting standards, 
+                                and operational procedures.</b>
+                        </div>
+                        <b className='date'>MAY 2022 - AUG 2023</b>
+                    </div>
+                </div>
+            </section>
+
+            {/* Projects */}
+            <section className='page' id='projects'>
+                <h1 className='bg-text'>Projects</h1>
+
+                <div className='projectContainer'>
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p>Company Website - <span className='lightText'>React, SEO, Graphic Design</span></p>
+                            <p className='mobileText'>Company Website<span className='lightText'>React, SEO, Graphic Design</span></p>
+                            <b>Using React and other desing tools, I created the graphics,  designed the webpage, 
+                                took photos, and developed the webpage. I was tasked with creating a new, 
+                                modern webpage for Lambton Scientific, check it out at: 
+                                <a href='https://www.lambtonscientific.com/' target='_blank'> www.lambtonscientific.com</a></b>
+
+                            <b className='mobileText'>Using React and other tools, I designed and developed a companies webpage. Check it out: 
+                            <a href='https://www.lambtonscientific.com/' target='_blank'> www.lambtonscientific.com</a></b>
+                        </div>
+                        <img src='/site.png' alt='p1'/>
+                    </div>
+
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p>Golf Tracker - <span className='lightText'>Swift, MapKit, Python</span></p>
+                            <p className='mobileText'>Golf Tracker<span className='lightText'>Swift, MapKit, Python</span></p>
+                            <b>Since I love to play golf, I decided to create an IOS App which allows users to 
+                                track their rounds as well as look at other courses. I scraped the data using Python from
+                                an online database. </b>
+
+                            <b className='mobileText'>I love to play golf, so I created an IOS app that allows users to track rounds played. Data was gathered using Python from online sources.</b>
+                        </div>
+                        <img src='/app.png' alt='p2' />
+                    </div>
+
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p>Snake Game - <span className='lightText'>Python, Pygame, IP</span></p>
+                            <p className='mobileText'>Snake Game<span className='lightText'>Python, Pygame, IP</span></p>
+                            <b>I replicated the popular online arcade game snake, eating apples 
+                                increases snake’s length by one. The game speed increases and bombs 
+                                also spawn which the player must dodge. This game uses a server to host 
+                                a chatroom and allows for multiplayer.
+                            </b>
+
+                            <b className='mobileText'>An adaptation of the original "Snake" game. The game is hosted on a server which supports multiplayer and chat.</b>
+                        </div>
+                        <img src='/snake.jpeg' alt='p3' />
+                    </div>
+
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p>Spell Checker - <span className='lightText'>Java, Jira, Data Structures</span></p>
+                            <p className='mobileText'>Spell Checker<span className='lightText'>Java, Jira, Data Structures</span></p>
+                            <b>
+                                I made a Java program which takes a file and reads the words, checking their spelling, 
+                                and giving correction options to the user. To increase efficiency, I created and implemeneted 
+                                data structured which reduced compute needs for each operation.
+                            </b>
+                            <b className='mobileText'>Java program that spell checks a text file and gives correction options. Different data structures used for computational efficiency.</b>
+                        </div>
+                        <img src='/spellSC.png' alt='p4' />
+                    </div>
+
+                    <div className='rowLine'>
+                        <div className='text'>
+                            <p>NFL Model - <span className='lightText'>Python, Stats, Pandas</span></p>
+                            <p className='mobileText'>NFL Model<span className='lightText'>Python, Stats, Pandas</span></p>
+                            <b>I built a model that uses Linear Regression and last year's data to predict next year's NFL Champion and their chances.</b>
+                            <b className='mobileText'>I built a model that uses Linear Regression and last year's data to predict next year's NFL Champion and their chances.</b>
+                        </div>
+                        <img src='/mesh.png' alt='p5' />
+                    </div>
+                </div>
+            </section>
+
+            {/* Contact */}
+            <section className='page' id='contact'>
+                <BackgroundSpots />
+                <div className='footerContainer'>
+                    <div className='titleRow'>
+                        <b>Check out my other <span className='lightText'>links</span></b>
+                        <img src='arrow.png' alt='arrow' />
+                    </div>
+
+                    <div className='footerItems'>
+                        <a href='https://www.linkedin.com/in/aidanjames/' target='_blank' rel="noreferrer" className="footer-link-button">
+                            <img src='/linkedin.png' alt='linkedin'/>
+                            <b>/aidanjames</b>
+                        </a>
+                        <a href='https://github.com/aidanjames97' target='_blank' rel="noreferrer" className="footer-link-button">
+                            <img src='/github.png' alt='github'/>
+                            <b>/aidanjames97</b>
+                        </a>
+                        <a href="mailto:ajames.msc2026@ivey.ca" target='_blank' rel='noreferrer' className="footer-link-button">
+                            <img src='/email.png' alt='email'/>
+                            <b>ajames.msc2026@ivey.ca</b>
+                        </a>
+                        <a href="/Resume.pdf" target='_blank' rel='noopener noreferrer' className="footer-link-button">
+                            <img src='/document.png' alt='resume'/>
+                            <b>Resume</b>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            </div>
+        </div>
+    );
+} 
+
 export default Site;
